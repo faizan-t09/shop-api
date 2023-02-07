@@ -4,6 +4,7 @@ import {
   deleteById,
   getAllProducts,
   getById,
+  toggleWishlisted
 } from "../Controllers/ProductController";
 
 const productRouter = express.Router();
@@ -24,4 +25,7 @@ productRouter.post("/addProduct", (req, res) => {
   addProduct(req, res);
 });
 
+productRouter.post("/wishlist/:id", (req, res) => {
+  toggleWishlisted(req, res);
+});
 export default productRouter;

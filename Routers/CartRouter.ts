@@ -1,13 +1,22 @@
-import * as express from 'express'
+import * as express from "express";
+import {
+  getCart,
+  addToCart,
+  removeFromCart,
+} from "../Controllers/CartController";
 
-const cartRouter = express.Router()
+const cartRouter = express.Router();
 
-cartRouter.get(`/`,(req,res)=>{
-  res.send(`Get for /cart says hello!`)
-})
+cartRouter.get(`/`, (req, res) => {
+  getCart(req, res);
+});
 
-cartRouter.post(`/addToCart`,(req,res)=>{
-  res.send(`Post for /cart/addToCart for productId ${req.body.productId} says hello!`)
-})
+cartRouter.post(`/:id`, (req, res) => {
+  addToCart(req, res);
+});
+
+cartRouter.delete(`/:id`, (req, res) => {
+  removeFromCart(req, res);
+});
 
 export default cartRouter;

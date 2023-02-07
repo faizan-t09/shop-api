@@ -1,6 +1,7 @@
 import * as express from 'express';
 import * as bodyParser from 'body-parser';
 import * as mongoose from 'mongoose';
+const cors = require('cors');
 
 import productRouter from './Routers/ProductRouter';
 import cartRouter from './Routers/CartRouter';
@@ -8,7 +9,8 @@ import cartRouter from './Routers/CartRouter';
 const portNo = 4000;
 
 const app = express.default();
-app.use(bodyParser.json())
+app.use(express.json())
+app.use(cors())
 
 app.use('/product', productRouter);
 app.use('/cart', cartRouter);
