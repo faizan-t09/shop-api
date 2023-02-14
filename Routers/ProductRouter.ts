@@ -4,28 +4,18 @@ import {
   deleteById,
   getAllProducts,
   getById,
-  toggleWishlisted
+  toggleWishlisted,
 } from "../Controllers/ProductController";
 
 const productRouter = express.Router();
 
-productRouter.get("/getAll", (req, res) => {
-  getAllProducts(req, res);
-});
+productRouter.get("/getAll", getAllProducts);
 
-productRouter.get("/:id", (req, res) => {
-  getById(req, res);
-});
+productRouter.get("/:id", getById);
 
-productRouter.delete("/:id", (req, res) => {
-  deleteById(req, res);
-});
+productRouter.delete("/:id", deleteById);
 
-productRouter.post("/addProduct", (req, res) => {
-  addProduct(req, res);
-});
+productRouter.post("/addProduct", addProduct);
 
-productRouter.post("/wishlist/:id", (req, res) => {
-  toggleWishlisted(req, res);
-});
+productRouter.post("/wishlist/:id", toggleWishlisted);
 export default productRouter;

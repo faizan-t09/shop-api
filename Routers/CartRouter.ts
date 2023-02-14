@@ -7,16 +7,10 @@ import {
 
 const cartRouter = express.Router();
 
-cartRouter.get(`/`, (req, res) => {
-  getCart(req, res);
-});
+cartRouter.get(`/`, getCart);
 
-cartRouter.post(`/:id`, (req, res) => {
-  addToCart(req, res);
-});
+cartRouter.post(`/:id`, addToCart);
 
-cartRouter.delete(`/:id`, (req, res) => {
-  removeFromCart(req, res);
-});
+cartRouter.delete(`/:id`, removeFromCart);
 
 export default cartRouter;
